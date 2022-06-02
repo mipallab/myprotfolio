@@ -213,9 +213,9 @@
     <div class="text-center">
       <p class="mx-auto mb-3" style="max-width:600px"><?php echo $service_row3['paragraph'];?></p>
     </div>
-    <div class=" p-3">
+    <div class="bg-light rounded p-3">
      
-      <div class="row">
+      <div class="row ">
         <?php
             $skill_sql = "SELECT * FROM `skill_section`";
             $skill_result = mysqli_query($connect, $skill_sql) or die("skill query Field");
@@ -531,7 +531,7 @@
     <script src="./scripts/aos.min.js?ver=1.2.0"></script>
     <script src="./scripts/main.js?ver=1.2.0"></script>
      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> <!-- progress bar -->
-     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- progress bar --> -->
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- progress bar --> 
     <script src="https://rawgit.com/kottenator/jquery-circle-progress/1.2.2/dist/circle-progress.js"></script>
     <script type="text/javascript">
       $(document).ready(function ($) {
