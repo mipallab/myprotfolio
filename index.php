@@ -73,7 +73,7 @@
               <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
               <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
               <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-              <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
               <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
               <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
@@ -235,20 +235,24 @@
     </div>
   </div>
 </div>
-<div class="section px-2 px-lg-4 pt-5" id="portfolio">
+<!-- <div class="section px-2 px-lg-4 pt-5" id="portfolio">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="marker marker-center">Portfolio </h2>
     </div>
     <div class="grid bp-gallery pb-3" data-aos="zoom-in-up" data-aos-delay="100">
-      <div class="grid-sizer"></div>
-      <div class="grid-item"><a href="https://dribbble.com">
-          <figure class="portfolio-item"><img src="images/portfolio/1-small.png" data-bp="images/portfolio/1.jpg"/>
+      <div class="grid-sizer">
+      <div class="grid-item">
+        <a href="https://dribbble.com">
+          <figure class="portfolio-item">
+            <img src="images/portfolio/1-small.png" data-bp="images/portfolio/1.jpg"/>
             <figcaption>
               <h4 class="h5 mb-0">Web Design</h4>
               <div>Dribbble.com</div>
             </figcaption>
-          </figure></a></div>
+          </figure>
+        </a></div>
+        </div>
       <div class="grid-item"><a href="https://github.com">
           <figure class="portfolio-item"><img src="images/portfolio/2-small.png" data-bp="images/portfolio/2.jpg" data-caption="Example of an optional caption."/>
             <figcaption> 
@@ -300,77 +304,36 @@
           </figure></a></div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="section px-3 px-lg-4 pt-5" id="experience">
   <div class="container-narrow">
     <div class="text-center mb-5">
       <h2 class="marker marker-center">Experience</h2>
     </div>
     <div class="row">
+      <?php
+        $experience_sql = "SELECT * FROM experience_section";
+        $experience_result = mysqli_query($connect, $experience_sql);
+        while($experience_row = mysqli_fetch_assoc($experience_result)) {
+      ?>
+
       <div class="col-md-6">
         <div class="card mb-3" data-aos="fade-right" data-aos-delay="100">
           <div class="card-header px-3 py-2">
             <div class="d-flex justify-content-between">
               <div>
-                <h3 class="h5 mb-1">UI/UX Design</h3>
-                <div class="text-muted text-small">Designerr Inc. <small>(2012-2014)</small></div>
-              </div><img src="images/services/ui-ux.svg" width="48" height="48" alt="ui-ux"/>
+                <h3 class="h5 mb-1"><?php echo $experience_row['h_title'];?></h3>
+                <div class="text-muted text-small"><?php echo $experience_row['sm_title'];?></div>
+              </div><img src="<?php echo $experience_row['icon_pic'];?>" width="48" height="48" alt="ui-ux"/>
             </div>
           </div>
           <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+            <p><?php echo $experience_row['paragraph'];?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-left" data-aos-delay="300">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">App Development</h3>
-                <div class="text-muted text-small">MakeMyApp LLC. <small>(2015-2018)</small></div>
-              </div><img src="images/services/app-development.svg" width="48" height="48" alt="app development"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-right" data-aos-delay="200">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">Web Design</h3>
-                <div class="text-muted text-small">Webbie LLC. <small>(2018-2020)</small></div>
-              </div><img src="images/services/web-design.svg" width="48" height="48" alt="web design"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-3" data-aos="fade-left" data-aos-delay="400">
-          <div class="card-header px-3 py-2">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h3 class="h5 mb-1">Full Stack Development</h3>
-                <div class="text-muted text-small">Coder Inc. <small>(2020-2021)</small></div>
-              </div><img src="images/services/full-stack.svg" width="48" height="48" alt="full stack"/>
-            </div>
-          </div>
-          <div class="card-body px-3 py-2">
-            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-          </div>
-        </div>
-      </div>
+    <?php } ?>
+      
     </div>
   </div>
 </div>
