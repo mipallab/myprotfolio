@@ -397,10 +397,12 @@
               <label for="message" class="form-label fw-bolder">Message</label>
               <textarea class="form-control" style="resize: none;" id="message" name="message" rows="4" required></textarea>
             </div>
-            <input class="btn btn-primary mt-2" type="submit" value= "Send" name="send">
+            <input id= "liveToastBtn" class="btn btn-primary mt-2" type="submit" value= "Send" name="send">
                 <?php 
                   if(isset($massage)) {
                     echo "<p> $massage </p>";
+
+
                   }
                 ?>
           </form>

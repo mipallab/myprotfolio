@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2022 at 06:44 PM
+-- Generation Time: Jun 08, 2022 at 06:52 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -87,6 +87,30 @@ CREATE TABLE `contact_section` (
 
 INSERT INTO `contact_section` (`id`, `title`, `heading`, `paragraph`) VALUES
 (1, 'Contact Me', 'Let’s talk how I can help you!', '<p>If you like my work and want to avail my services then drop me a message using the contact form.</p> \n\n<p>Or get in touch using my email, skype or my contact number.</p>\n\n<p>See you!</p>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `experience_section`
+--
+
+CREATE TABLE `experience_section` (
+  `id` int(11) NOT NULL,
+  `h_title` varchar(500) NOT NULL,
+  `sm_title` varchar(90) NOT NULL,
+  `icon_pic` varchar(255) NOT NULL,
+  `paragraph` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `experience_section`
+--
+
+INSERT INTO `experience_section` (`id`, `h_title`, `sm_title`, `icon_pic`, `paragraph`) VALUES
+(1, 'UI/UX Design', 'Designerr Inc. <small>(2012-2014)</small>', 'images/services/ui-ux.svg', '<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. </p>\r\n\r\n<p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>'),
+(2, 'App Development', 'MakeMyApp LLC. <small>(2015-2018)</small>', 'images/services/app-development.svg', '<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. </p>\r\n\r\n<p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>'),
+(3, 'Web Design', 'Webbie LLC. <small>(2018-2020)</small>', 'images/services/web-design.svg', '<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>\r\n<p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment </p>'),
+(4, 'Full Stack Development', 'Coder Inc. <small>(2020-2021)</small>', 'images/services/full-stack.svg', '<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>\r\n<p>Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment </p>');
 
 -- --------------------------------------------------------
 
@@ -200,15 +224,17 @@ CREATE TABLE `users` (
   `address` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   `profession` varchar(50) NOT NULL,
-  `age` int(11) NOT NULL
+  `age` int(11) NOT NULL,
+  `photo` varchar(266) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `uname`, `pass`, `role`, `email`, `address`, `name`, `profession`, `age`) VALUES
-(1, 'MI_Pallab', 'Pallab@123', 'admin', 'pallab4842@gmail.com', '1650 Monohardi, Narshingdi, Dhaka, Bangadesh', 'Majadul Islam Pallab', 'Full Stack Developer', 26);
+INSERT INTO `users` (`id`, `uname`, `pass`, `role`, `email`, `address`, `name`, `profession`, `age`, `photo`) VALUES
+(1, 'MI_Pallab', 'Pallab@123', 'admin', 'pallab4842@gmail.com', '1650 Monohardi, Narshingdi, Dhaka, Bangadesh', 'Majadul Islam Pallab', 'Full Stack Developer', 26, '../images/users/avatar.png'),
+(2, 'RI_Showrav', 'Showrav@12', 'editor', 'rishowrav@gmail.com', '1650 Monohardi, Narshingdi, Dhaka, Bangladesh(BD)', 'Rahemul Islam Showrav', 'SEO Manager', 24, '../images/users/showrav.jpg');
 
 -- --------------------------------------------------------
 
@@ -228,7 +254,8 @@ CREATE TABLE `user_massage` (
 --
 
 INSERT INTO `user_massage` (`id`, `name`, `email`, `massage`) VALUES
-(1, 'Majadul Islam Pallab', 'pallab@gmail.com', 'If you like my work and want to avail my services then drop me a message using the contact form');
+(1, 'Majadul Islam Pallab', 'pallab@gmail.com', 'If you like my work and want to avail my services then drop me a message using the contact form'),
+(2, 'MD Rashedul Mahfuz Biplob', 'biplob@quantummethod.org.bd', 'Hi there,\r\nMany year no contact. Pick up your phone. then calll me.');
 
 --
 -- Indexes for dumped tables
@@ -250,6 +277,12 @@ ALTER TABLE `client_review_section`
 -- Indexes for table `contact_section`
 --
 ALTER TABLE `contact_section`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `experience_section`
+--
+ALTER TABLE `experience_section`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -311,6 +344,12 @@ ALTER TABLE `contact_section`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `experience_section`
+--
+ALTER TABLE `experience_section`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `my_service_section`
 --
 ALTER TABLE `my_service_section`
@@ -338,13 +377,13 @@ ALTER TABLE `social_link`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_massage`
 --
 ALTER TABLE `user_massage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
